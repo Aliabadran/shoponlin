@@ -1,0 +1,15 @@
+
+<h2>Your Notifications</h2>
+
+<ul>
+    @foreach ($unreadNotifications as $notification)
+        <li>
+            {{ $notification->data['message'] }}
+            <form action="{{ route('notifications.read', $notification->id) }}" method="POST">
+                @csrf
+                <button type="submit">Mark as Read</button>
+            </form>
+        </li>
+    @endforeach
+</ul>
+

@@ -1,0 +1,33 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+@extends('layouts.app')
+
+@section('content')
+<h1 class="text-center mb-4">Categories</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach ($categories as $category)
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ $category->image_url }}" class="card-img-top" alt="{{ $category->name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $category->name }}</h5>
+                    <p class="card-text">{{ Str::limit($category->description, 100) }}</p>
+                    <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary">View Category</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endsection
+public function index()
+{
+    // Retrieve all categories from the database
+    $categories = Category::all();
+
+    // Pass categories to the Blade view
+    return view('categories', compact('categories'));
+}

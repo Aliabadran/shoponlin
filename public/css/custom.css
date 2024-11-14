@@ -1,0 +1,45 @@
+.cart-table th, .cart-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cart-product-name {
+    display: flex;
+    align-items: center;
+}
+
+.cart-product-name img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.cart-summary {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-quantity {
+    width: 80px;
+    margin: 0 auto;
+}
+
+.btn-danger {
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff5252;
+}
+
+
+.scrollable-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of content */
+    width: 100%; /* Full width of the container */
+}
+
+.wide-content {
+    display: inline-block; /* Ensures that content stays in one line */
+    /* Add additional styles for your content here */
+}
