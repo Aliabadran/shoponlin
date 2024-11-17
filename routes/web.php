@@ -1,4 +1,4 @@
-npm install<?php
+<?php
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;

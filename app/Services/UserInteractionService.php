@@ -44,7 +44,8 @@ class UserInteractionService
         $scoreIncrement = $this->getScoreIncrement($interactionType);
 
         // Update or create the user preference
-        $user = Auth::find($userId);
+     //   $user = Auth::find($userId);
+        $user = User::find($userId);
         $user->preferences()->updateOrCreate(
             ['preference' => $category],
             ['score' => \DB::raw("score + {$scoreIncrement}")]

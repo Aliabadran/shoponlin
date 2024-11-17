@@ -1,9 +1,12 @@
 <!-- slider section -->
 <section class="slider_section ">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
     <div class="slider_bg_box">
         <img src="/images/slider-bg.jpg" alt="">
     </div>
-    <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-bs-interval="3000"> <!-- Set timer for 3 seconds -->
+
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-bs-interval="2000"> <!-- Set timer for 2 seconds -->
 
         <div class="carousel-inner">
 
@@ -102,22 +105,30 @@
             <ol class="carousel-indicators">
                 @guest
                     @foreach($allAds as $index => $ad)
-                        <li data-target="#customCarousel1" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                        <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
                     @endforeach
                 @endguest
 
                 @auth
                     @if ($preferredAds->isEmpty())
                         @foreach($allAds->take(3) as $index => $ad)
-                            <li data-target="#customCarousel1" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                            <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
                         @endforeach
                     @else
                         @foreach($preferredAds as $index => $ad)
-                            <li data-target="#customCarousel1" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                            <li data-bs-target="#customCarousel1" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
                         @endforeach
                     @endif
                 @endauth
             </ol>
+            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
     </div>
 </section>

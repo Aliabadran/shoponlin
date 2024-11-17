@@ -65,7 +65,7 @@
     displayAd();
 
     // Change ad every 3 minutes (300000 milliseconds)
-    setInterval(displayAd, 180000);
+    setInterval(displayAd, 90000);
 </script>
 
 <style>
